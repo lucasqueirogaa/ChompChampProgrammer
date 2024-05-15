@@ -1,13 +1,8 @@
-import express from "express";
-
+import app from "./api";
 import Logger from "./config/logger";
 
-const app = express();
+const port = process.env.PORT;
 
-app.use("/", (req, res) => {
-  return res.json("Hello from ChomChamp Backend")
-});
-
-app.listen(3000, () => {
-  Logger.info("App is listening to the port 3000");
+app.listen(port, () => {
+  Logger.info(`You're connected on port ${port}`);
 });
