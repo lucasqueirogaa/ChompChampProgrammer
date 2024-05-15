@@ -1,5 +1,7 @@
 import express from "express";
 
+import Logger from "./config/logger";
+
 const app = express();
 
 app.use("/", (req, res) => {
@@ -7,5 +9,5 @@ app.use("/", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("App is listening to the port 3000");
+  Logger.info("App is listening to the port 3000");
 });
