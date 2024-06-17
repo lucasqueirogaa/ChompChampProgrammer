@@ -4,19 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@nestjs/core": "^10.3.9",
-    "bunyan": "^1.8.15",
     "cors": "^2.8.5",
     "cypress": "^13.11.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "log4js": "^6.9.1",
     "nodemon": "^3.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
