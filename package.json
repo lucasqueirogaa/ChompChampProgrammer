@@ -1,12 +1,12 @@
 {
   "name": "chompchampprogrammer",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
-    "test": "node --test --watch --test-reporter spec test/base.spec.js"
+    "test": "node --test --require ts-node/register test/**.spec.ts test/**/*.spec.ts",
+    "test-watch": "node --test --watch --require ts-node/register test/**.spec.ts test/**/*.spec.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,6 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.10",
     "nodemon": "^3.1.4",
-    "nyc": "^17.0.0",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.5"
