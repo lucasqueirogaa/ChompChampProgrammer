@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
     "test": "node --test --require ts-node/register test/**.spec.ts test/**/*.spec.ts",
-    "test-watch": "node --test --watch --require ts-node/register test/**.spec.ts test/**/*.spec.ts"
+    "test-watch": "node --test --watch --require ts-node/register test/**.spec.ts test/**/*.spec.ts",
+    "database-setup": "ts-node src/database/setup-db.ts"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "log4js": "^6.9.1"
+    "log4js": "^6.9.1",
+    "mysql2": "^3.10.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
