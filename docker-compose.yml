@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  mysql_db:
+    image: mysql/mysql-server:latest
+    container_name: ccp-mysql
+    restart: always
+    volumes:
+      - $HOME/database:/var/lib/mysql
+    ports:
+      - 3307:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+  app:
+    build:
+      context: ./
+      dockerfile: DockerFile
+    working_dir: /src
+    container_name: ccp-app
+    restart: always
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      PORT: ${PORT}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: 3306
+    depends_on:
+      - mysql_db
+    volumes:
+      - .:/src
+
+volumes:
+  mysql-volume: {}

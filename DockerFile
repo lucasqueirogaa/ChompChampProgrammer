@@ -1,0 +1,16 @@
+FROM node:20.9.0
+
+ARG PORT
+
+ENV PORT=${PORT} DB_PASSWORD=${DB_PASSWORD} DB_USER=${DB_USER} DB_NAME=${DB_NAME} DB_PORT=${DB_PORT}
+
+WORKDIR /src
+
+COPY ./package.json .
+RUN npm install
+
+COPY . .
+
+EXPOSE ${PORT} ${DB_PASSWORD} ${DB_USER} ${DB_NAME} ${DB_PORT}
+
+CMD ["sh", "-c","npm run migrate && npm run dev"]

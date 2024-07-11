@@ -5,8 +5,10 @@ import logger from "../config/logger";
 
 const databaseConfig = {
   host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 };
 
 const database = createPool(databaseConfig).promise();
@@ -32,8 +34,12 @@ const database = createPool(databaseConfig).promise();
         phonenumber VARCHAR(255) NOT NULL
       );
     `);
+
+    process.exit(0);
   } catch (error) {
     logger.error(`Error creating and configurating database`, error);
+
+    process.exit(1);
   } finally {
     await database.end();
   }

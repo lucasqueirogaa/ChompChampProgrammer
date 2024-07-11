@@ -7,7 +7,9 @@
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
     "test": "node --test --require ts-node/register test/**.spec.ts test/**/*.spec.ts",
     "test-watch": "node --test --watch --require ts-node/register test/**.spec.ts test/**/*.spec.ts",
-    "database-setup": "ts-node src/database/setup-db.ts"
+    "migrate": "ts-node src/database/setup-db.ts",
+    "docker": "docker compose up -d",
+    "docker-d": "docker compose down"
   },
   "keywords": [],
   "author": "",
